@@ -1,0 +1,13 @@
+name: Creates a tag and release
+on:
+  workflow_dispatch:
+
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh release create --generate-notes -t $RELEASE
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE: v1.0.0
+
