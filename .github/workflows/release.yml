@@ -9,7 +9,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - run: gh release create --target main --generate-notes -t $RELEASE
+      - run: gh release create ${GITHUB_REF#refs/*/} --generate-notes -t $RELEASE
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE: v1.0.0
