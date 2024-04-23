@@ -10,7 +10,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - run: gh release create ${{ github.ref_name }} --generate-notes
+      - run: gh release create ${{ github.ref_name }} --generate-notes -t $RELEASE
         env:
           RELEASE: v1.0.0
           GH_TOKEN: ${{ github.token }}
