@@ -12,6 +12,6 @@ jobs:
 
       - run: gh release create $RELEASE --generate-notes --target ${{ github.sha }}
         env:
-          RELEASE: v1.0.0
+          RELEASE: v1.0.1
           GH_TOKEN: ${{ github.token }}
 
