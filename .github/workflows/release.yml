@@ -11,8 +11,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
+      - uses: avakar/derive-version@v1
+        id: version
+
       - run: gh release create $RELEASE --generate-notes --target ${{ github.sha }}
         env:
-          RELEASE: v1.0.2
+          RELEASE: v${{ steps.version.outputs.version }}
           GH_TOKEN: ${{ github.token }}
 
