@@ -6,7 +6,10 @@ jobs:
   Release:
     runs-on: ubuntu-latest
     steps:
-      - run: gh release create --generate-notes -t $RELEASE
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - run: gh release create --target main --generate-notes -t $RELEASE
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE: v1.0.0
